@@ -16,7 +16,7 @@ const TodoDetails = ({ work, setTodo }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/todo/${id}`;
+      const url = `https://cryptic-waters-76666.herokuapp.com/todo/${id}`;
       fetch(url, {
         method: "DELETE",
       })

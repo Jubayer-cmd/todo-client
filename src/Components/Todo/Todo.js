@@ -8,7 +8,7 @@ const Todo = () => {
   const [todo, setTodo] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/todo")
+      .get("https://cryptic-waters-76666.herokuapp.com/todo")
       .then((response) => setTodo(response.data));
   }, [todo]);
 
@@ -20,13 +20,15 @@ const Todo = () => {
       name,
       description,
     };
-    axios.post("http://localhost:5000/todo", todos).then((response) => {
-      const { data } = response;
-      if (data.insertedId) {
-        toast("Task has been added");
-        event.target.reset();
-      }
-    });
+    axios
+      .post("https://cryptic-waters-76666.herokuapp.com/todo", todos)
+      .then((response) => {
+        const { data } = response;
+        if (data.insertedId) {
+          toast("Task has been added");
+          event.target.reset();
+        }
+      });
   };
   return (
     <div className="text-center py-5">
